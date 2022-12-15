@@ -17,7 +17,7 @@ func ConnectDatabase() {
 		panic("Failed to connect to database!")
 	}
 
-	err = database.AutoMigrate(&Game{})
+	err = database.AutoMigrate(&Game{},&Player{})
 	if err != nil {
 		return
 	}
