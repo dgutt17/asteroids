@@ -6,7 +6,9 @@ import {rateOfFirePowerup, sprayPowerup, shieldPowerup, updateShieldPowerUp, spe
 import {destroyAsteroid} from './asteroid.mjs'
 
 export default function startSocketActions(self, allowedPlayersCount) {
-  self.socket = io.connect('', { query: `allowedPlayersCount=${allowedPlayersCount}` });
+  // self.socket = io.connect('/', { query: `allowedPlayersCount=${allowedPlayersCount}` });
+  self.socket = io.connect();
+
   self.socket.on('inProgress', function () {
     clearStartScreen()
     self.add.text(225, 400, 'Game In Progress. Go Away.'.toUpperCase(), { fontSize: '32px' })
